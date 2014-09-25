@@ -10,9 +10,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
 
-group :development do
-  gem 'spring',        group: :development
+group :development, :test do
+  gem 'spring'
   gem 'sqlite3'
+  gem 'rspec-rails'
 end
 
 group :production do
