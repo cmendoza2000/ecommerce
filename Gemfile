@@ -15,6 +15,7 @@ group :development, :test do
   gem 'erb2haml'
   gem 'spring'
   gem 'sqlite3'
+  gem 'rake'
   #gem 'rspec-rails'
 end
 
