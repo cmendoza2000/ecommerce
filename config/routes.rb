@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'user/show'
 
   get 'home/index'
 
@@ -9,7 +8,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-
+  resources :users
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
