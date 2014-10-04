@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :username, presence: true, uniqueness: true, length: { minimum: 2 }
+  validates :username, presence: true, uniqueness: true, length: { minimum: 2, maximum: 15 }
   validates :email, presence: true, uniqueness: true
   validates :zip_code, length: { minimum: 5, maximum: 6 }
 

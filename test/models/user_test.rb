@@ -20,6 +20,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not user.save
   end
   
+  test "should not save username with more than 15 characters" do
+    user = users(:user)
+    user.username = "username12345678"
+    assert_not user.save
+  end
+  
   # Email validations 
   test "should not save user without email" do
     user = users(:user_without_email)
