@@ -1,0 +1,23 @@
+user:
+  username: username
+  email: email@email.com
+  zip_code: 123456
+
+user_2:
+  username: username2
+  email: email2@email.com
+
+user_without_username:
+  email: email3@email.com
+
+user_without_email:
+  username: username3
+
+user_with_invalid_email:
+  username: username4
+  email: email.com
+
+
+
+  
+
