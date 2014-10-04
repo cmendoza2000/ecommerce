@@ -1,14 +1,21 @@
-one:
-  first_name: Alvaro
-  last_name: Delgado
-  username: AAlvAAro
-  age: 28
-  gender: male
-  email: email@gmail.com
-  city: Morelia
-  state: Michoacan
+user:
+  username: username
+  email: email@email.com
   zip_code: 123456
-  street: First Ave. No. 1
+
+user_2:
+  username: username2
+  email: email2@email.com
+
+user_without_username:
+  email: email3@email.com
+
+user_without_email:
+  username: username3
+
+user_with_invalid_email:
+  username: username4
+  email: email.com
 
 
 
