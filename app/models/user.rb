@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :username, presence: true, length: { minimum: 2 }
+  validates :zip_code, length: { minimum: 5, maximum: 6 }
 end

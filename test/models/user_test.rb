@@ -39,4 +39,16 @@ class UserTest < ActiveSupport::TestCase
     assert_not user.save
   end
 
+  # Zip code validations
+  test "should not save a zip code with less than 5 characters" do
+    user = users(:one)
+    user.zip_code = 1234
+    assert_not user.save
+  end
+  
+  test "should not save a zip code with more than 6 characters" do
+    user = users(:one)
+    user.zip_code = 1234567
+    assert_not user.save
+  end
 end
