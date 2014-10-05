@@ -1,9 +1,8 @@
-class CreateArticulos < ActiveRecord::Migration
+class CreateArticles < ActiveRecord::Migration
   def change
-    create_table :articulos do |t|
+    create_table :articles do |t|
       t.string :name
       t.string :category
-      t.string :string
       t.float :price
       t.text :description
 
