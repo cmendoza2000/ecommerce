@@ -1,13 +1,21 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  category: MyString
+article:
+  name: article
+  category: article_category
   price: 1.5
-  description: MyText
 
-two:
-  name: MyString
-  category: MyString
+article_2:
+  name: article2
+  category: article_category
   price: 1.5
-  description: MyText
+
+article_without_name:
+  category: article_category
+  price: 1.5
+
+article_without_category:
+  name: article2
+  price: 1.5
+
+article_without_price:
+  name: article3
+  category: article_category
