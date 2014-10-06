@@ -13,8 +13,7 @@ class ArticleTest < ActiveSupport::TestCase
     copy = articles(:article_2)
     copy.name = "article"
     assert_not copy.save
-  end
-
+  end 
   test "should not save an article with a name smaller than 4 characters" do
     article = articles(:article)
     article.name = "123"
@@ -42,4 +41,10 @@ class ArticleTest < ActiveSupport::TestCase
   test "should not save an article with an invalid price format" do
   end
 
+  # Article's permalink
+  test "should create a slug with the name of the article" do
+    article = articles(:article)
+    article.save
+    assert article.slug == article.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+  end
 end
