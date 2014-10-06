@@ -1,8 +1,45 @@
-%h1 Ecommerce website RoR
-%br
-=link_to "Create User", new_user_registration_path
-%br
-=link_to "Log in", new_user_session_path
-%br
-=link_to "User's List", users_path
-
+.jumbotron
+  %h1 RoR e-commerce app
+  %p A simple e-commerce application for selling and buying items
+.page-header
+  %h1 Categories
+.row
+  .col-lg-3
+    %a{href: "#", type: "button"} Category
+  .col-lg-3
+    %a{href: "#", type: "button"} Category 2
+  .col-lg-3
+    %a{href: "#", type: "button"} Category 3
+  .col-lg-3
+    %a{href: "#", type: "button"} Category 4
+  .col-lg-3
+    %a{href: "#", type: "button"} Category 5
+  .col-lg-3
+    %a{href: "#", type: "button"} Category 6
+  .col-lg-3
+    %a{href: "#", type: "button"} Category 7
+  .col-lg-3
+    %a{href: "#", type: "button"} Category 8
+  .col-lg-3
+    %a{href: "#", type: "button"} Category 9
+  .col-lg-3
+    %a{href: "#", type: "button"} Category 10
+  .col-lg-3
+    %a{href: "#", type: "button"} Category 11
+  .col-lg-3
+    %a{href: "#", type: "button"} Category 12
+.page-header
+  %h1 Latest items
+.row  
+  - @articles.each do |article|
+    .col-lg-3.col-md-4.col-sm-6
+      .panel.panel-primary
+        .panel-heading
+          %h3.panel-title= article.name
+      .panel-body
+        .row  
+          .col-lg-4
+            %a{href: "#", class: "thumbnail"}
+              %img{src: "http://placehold.it/50x50"}
+          .col-lg-8
+            = article.description
