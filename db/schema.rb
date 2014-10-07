@@ -23,16 +23,6 @@ ActiveRecord::Schema.define(version: 20141006162824) do
     t.string   "slug"
   end
 
-  create_table "articulos", force: true do |t|
-    t.string   "name"
-    t.string   "category"
-    t.string   "string"
-    t.float    "price"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
