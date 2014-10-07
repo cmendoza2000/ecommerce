@@ -1,0 +1,51 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.center {
+  text-align: center;
+}
+
+.description {
+  margin-left: 3em;
+  margin-right: 3em;
+  font-family: Serif;
+  text-align: justify;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.answer {
+  padding-left: 5em;
+  margin-left: 5em;
+  margin-top: 3em;
+  margin-bottom: 0;
+  background-color: white;
+}
+
+.price {
+  font-family: fantasy;
+  font-weight: 700;
+  font-size: 35px;
+}
+
+.br-sm {
+  margin-top: 1.5em;
+}
+
+.br-md {
+  margin-top: 3em;
+}
+
+.br-lg {
+  margin-top: 5em;
+}
+
+.right {
+  float: right; 
+}
+
+.left {
+  float: left; 
+}
