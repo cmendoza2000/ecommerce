@@ -8,4 +8,16 @@
   %body
     %p.notice
     %p.alert
-    = yield
+    .navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          = link_to "Home", root_path, class: "navbar-brand"
+        .navbar-collapse.collapse#navbar-main
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "Login", new_user_session_path
+            %li= link_to "Register", new_user_registration_path
+          %form.navbar-form.navbar-right
+            %input.form-control.col-lg-8{type: "text", placeholder: "Search"}
+    .container 
+      = yield
+
