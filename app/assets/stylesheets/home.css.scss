@@ -4,6 +4,8 @@
 
 $blue : #023464;
 $light-blue: #3caae9;
+$grey: #d9d9d9;
+$dark-grey: #595966; 
 
 #footer {
   position: relative;
@@ -27,3 +29,29 @@ $light-blue: #3caae9;
   }
 
 }
+
+.category {
+  margin-bottom: 10px;
+   
+  a {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    span {
+      background: $grey; 
+    }
+  }
+
+  span {
+    background: $dark-grey; 
+    padding: 8px;
+    line-height: 2em;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+  }
+
+}
+
