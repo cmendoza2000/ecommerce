@@ -1,0 +1,44 @@
+.row
+  .center
+    %h2 Article's name
+  .row.br-md
+    .col-lg-4
+      %a{href: "#", class: "thumbnail"}
+        %img{src: "http://placehold.it/350x350"}
+    .col-lg-8
+      .center
+        %h3 Description
+      %p.description Note that this schema.rb definition is the authoritative source for your database schema. If you need to create the application database on another system, you should be using db:schema:load, not running all the migrations from scratch. The latter is a flawed and unsustainable approach (the more migr
+      .row
+        .col-lg-6.br-md.center
+          %h4 Shipping details
+        .col-lg-6.br-md.center
+          %h4 Price
+          .col-lg-6
+            %span.price $ 99.99
+          .col-lg-6
+            %a{class: "btn btn-success btn-large"} BUY NOW
+.row
+  .center
+    .page-header
+      %h2 Questions
+
+.row  
+  .form-group
+    %input.form-control#focusedInput{type: "text", value: "Ask a question to the seller"}
+    .br-sm.right
+      %a{class: "btn btn-info btn-large"} Ask Question
+
+.row.br-md
+  .well.well-lg
+    First question
+    .row
+      .well.well-sm.answer
+        This is the answer
+  .well.well-lg
+    Second question
+    .row
+      .well.well-sm.answer
+        This is the answer
+  .well.well-lg
+    Third question
