@@ -3,6 +3,7 @@
 Rails e-commerce app
 
 [![Build Status](https://travis-ci.org/AAlvAAro/ecommerce.svg?branch=master)](https://travis-ci.org/AAlvAAro/ecommerce)
+[![Dependency Status](https://gemnasium.com/AAlvAAro/ecommerce.png)](https://gemnasium.com/AAlvAAro/ecommerce)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
