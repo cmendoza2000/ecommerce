@@ -1,9 +1,8 @@
 class UserResitrationTest < ActionDispatch::IntegrationTest
   setup do
     Capybara.current_driver = Capybara.javascript_driver
-
-    @user = users(:user)
-    @user.password = "password"
+    
+    @user = User.create(username: "Antonio", email: "aadelgado@fevaq.net", password: "123456")
   end
   
   test "sign in successfully" do
@@ -24,17 +23,17 @@ class UserResitrationTest < ActionDispatch::IntegrationTest
     fill_in "Email", :with => "email2@email.com"
     fill_in "Password", :with => "password"
     fill_in "Password confirmation", :with => "password"
-    click_link "Sign up"
+    click_button "Sign up"
     assert page.has_content?("User Profile")
     assert page.has_content?(@user.username)
     assert page.has_content?(@user.email)
   end
 
-  test "recover password" do
+  test "reset password" do
     visit new_user_session_path
     click_link "Forgot your password?"
     fill_in "Email", :with => "email@email.com"
-    click_link "Send me reset password instrucctions"
+    find("#reset-password").click()
     assert page.has_content?("An email has been sent to your email address")
   end
   
