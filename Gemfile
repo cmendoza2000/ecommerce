@@ -16,7 +16,8 @@ group :development, :test do
   gem 'spring'
   gem 'sqlite3'
   gem 'rake'
-  #gem 'rspec-rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :production do
