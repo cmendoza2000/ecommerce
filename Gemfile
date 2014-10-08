@@ -18,6 +18,7 @@ group :development, :test do
   gem 'rake'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'factory_girl'
 end
 
 group :production do
