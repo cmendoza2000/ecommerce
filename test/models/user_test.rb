@@ -39,11 +39,6 @@ class UserTest < ActiveSupport::TestCase
     assert_not user_2.save
   end
 
-  test "should not save an email without a valid format" do 
-    user = users(:user_with_invalid_email)
-    assert_not user.save
-  end
-
   # Zip code validations
   test "should not save a zip code with less than 5 characters" do
     user = users(:user)

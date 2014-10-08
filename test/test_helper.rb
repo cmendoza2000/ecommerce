@@ -8,6 +8,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  include FactoryGirl::Syntax::Methods
 end
 
 class ActionDispatch::IntegrationTest
@@ -15,4 +16,5 @@ class ActionDispatch::IntegrationTest
 
   Capybara.reset_sessions!
   Capybara.use_default_driver
+  Capybara.default_wait_time = 5
 end
