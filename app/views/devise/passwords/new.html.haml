@@ -7,5 +7,5 @@
         = f.label :email, class: "form-label"
         %br/
         = f.email_field :email, autofocus: true, class: "form-control"
-      .br-md= f.submit "Send me reset password instructions", class: "btn btn-success btn-medium"
+      .br-md= f.submit "Send me reset password instructions", class: "btn btn-success btn-medium", id: "reset-password"
     = render "devise/shared/links"
