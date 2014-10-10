@@ -10,9 +10,9 @@ describe "the user account flow", :type => :feature do
     click_button "Log in"
   end
 
-  it "signs me in" do
-    login_user
-    expect(page).to have_content "You have logged in successfuly"
+  it "signs me in" do 
+    login_user 
+    expect(page).to have_content "You have logged in successfuly" 
     expect(page).to have_content @user.username
     expect(page).to have_content "Logout"
     expect(page).to have_no_content "Login"
@@ -55,19 +55,23 @@ describe "the user account flow", :type => :feature do
     expect(page).to have_content "Edit Profile"
   end
 
-=begin
   it "edits my profile" do
     login_user
     click_link "Edit Profile"
     expect(current_path).to eq edit_user_path(@user)
-    fill_in "Username", :with => "aalvaaro"
-    fill_in "Email", :with => "aalvaaro@email.com"
-    fill_in "City", :with => "Morelia"
-    fill_in "State", :with => "Texas"
-    fill_in "Zip Code", :with => "100000"
-    click_link "Save changes"
+    fill_in "username", :with => "username2"
+    fill_in "first_name", :with => "Alvaro"
+    fill_in "last_name", :with => "Delgado"
+    fill_in "age", :with => 28
+    fill_in "street", :with => "First Ave. No. 1200"
+    fill_in "city", :with => "Morelia"
+    fill_in "state", :with => "Texas"
+    fill_in "zip_code", :with => "100000"
+    fill_in "email", :with => "aalvaaro@email.com"
+    click_button "Save Changes"
     expect(page).to have_content "Your profile has been successfully updated"
-  end
+end
+=begin
 
 it "deletes my profile" do 
     visit user_path(@user)

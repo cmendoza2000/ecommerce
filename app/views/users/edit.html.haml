@@ -1,1 +1,35 @@
 %h2 Edit Profile
+.br-md  
+  = form_tag edit_user_path(@user), :method => :put do
+    .form-group
+      = label_tag :username
+      = text_field_tag :username, @user.username, :name => :username
+    .form-group
+      = label_tag :first_name
+      = text_field_tag :first_name, @user.first_name, :name => :first_name
+    .form-group
+      = label_tag :last_name
+      = text_field_tag :last_name, @user.last_name, :name => :last_name
+    .form-group
+      = label_tag :age
+      = text_field_tag :age, @user.age, :name => :age
+    .form-group
+      = label_tag :gender
+      = text_field_tag :gender, @user.gender, :name => :gender
+    .form-group
+      = label_tag :street
+      = text_field_tag :street, @user.street, :name => :street
+    .form-group
+      = label_tag :city
+      = text_field_tag :city, @user.city, :name => :city
+    .form-group
+      = label_tag :state
+      = text_field_tag :state, @user.state, :name => :state
+    .form-group
+      = label_tag :zip_code
+      = text_field_tag :zip_code, @user.zip_code, :name => :zip_code
+    .form-group
+      = label_tag :email
+      = text_field_tag :email, @user.email, :name => :email
+    .form-group
+      = submit_tag "Save Changes"
