@@ -7,7 +7,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 2.4.0'
-gem 'jbuilder', '~> 2.2.1'
+gem 'jbuilder', '~> 2.2.2'
 gem 'haml-rails'
 gem 'devise', '~> 3.4.0'
 
