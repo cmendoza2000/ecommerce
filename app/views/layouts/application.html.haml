@@ -14,10 +14,15 @@
           = link_to "Home", root_path, class: "navbar-brand"
         .navbar-collapse.collapse#navbar-main
           %ul.nav.navbar-nav.navbar-right
-            %li= link_to "Login", new_user_session_path
-            %li= link_to "Register", new_user_registration_path
+            - if user_signed_in?
+              %li= link_to "Logout", destroy_user_session_path, method: "delete"
+            - else
+              %li= link_to "Login", new_user_session_path
+              %li= link_to "Register", new_user_registration_path
           %form.navbar-form.navbar-right
             %input.form-control.col-lg-8{type: "text", placeholder: "Search"}
+    - flash.each do |name, msg|
+      %p{class: name}= msg
     .container 
       = yield
 
