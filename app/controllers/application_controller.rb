@@ -4,8 +4,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :set_permitted_parameters, if: :devise_controller?
 
+  def after_sign_in_path_for(new_user_session)
+    flash[:notice] = "You have logged in successfuly"
+    user_path(@user)
+  end
+
+  def after_sign_out_path_for(destroy_user_session)
+    flash[:notice] = "You have logged out successfuly"
+    root_path
+  end
+
   protected
-    
   def set_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :username
   end

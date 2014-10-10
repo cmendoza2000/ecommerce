@@ -1,6 +1,6 @@
-%h2= @user.username 
-%p= @user.first_name 
-%br
+%h2= "Hello #{@user.username}"
 %h3 Your information
-
- 
+%p= @user.first_name 
+.br-lg
+= link_to "Delete Profile"
+= link_to "Edit Profile", edit_user_path(@user)
