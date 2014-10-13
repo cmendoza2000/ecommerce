@@ -10,6 +10,7 @@ gem 'turbolinks', '~> 2.4.0'
 gem 'jbuilder', '~> 2.2.2'
 gem 'haml-rails'
 gem 'devise', '~> 3.4.0'
+gem 'toastr-rails'
 
 group :development, :test do
   gem 'erb2haml'
