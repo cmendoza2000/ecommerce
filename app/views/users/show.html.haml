@@ -1,6 +1,22 @@
-%h2= "Hello #{@user.username}"
-%h3 Your information
-%p= @user.first_name 
-.br-lg
-= link_to "Delete Profile", user_path(@user), method: :delete
-= link_to "Edit Profile", edit_user_path(@user)
+.page-header.center
+  %h2= "Hello #{@user.username}"
+
+.row
+  .col-lg-10.col-lg-offset-2
+    .col-lg-6
+      %h3 Profile Information
+      .col-lg-3
+        %p Name: 
+        %p Last Name:  
+        %p Email: 
+        %p= @user.first_name 
+      .col-lg-9
+        %p= @user.first_name 
+        %p= @user.last_name
+        %p= @user.email
+        %p= @user.first_name 
+      .br-lg
+        = link_to "Edit Profile", edit_user_path(@user), class: "btn btn-warning btn-sm"
+        = link_to "Delete Profile", user_path(@user), method: :delete, class: "btn btn-danger btn-sm"
+    .col-lg-6
+      %h3 Latest Transactions

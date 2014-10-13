@@ -48,11 +48,18 @@ describe UsersController, :type => :feature do
       click_button "Send me reset password instructions"
     end
 
-    scenario "shows my profile" do
+    scenario "shows my profile after login" do
       login_user
       expect(page).to have_content "Hello capybara"
       expect(page).to have_content "Delete Profile"
       expect(page).to have_content "Edit Profile"
+    end
+
+    scenario "go to my profile" do
+      login_user
+      visit root_path
+      click_link "Account"
+      expect(current_path).to eq user_path(@user)
     end
 
     scenario "edits my profile" do
