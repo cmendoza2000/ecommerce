@@ -69,6 +69,7 @@ describe UsersController, :type => :feature do
       fill_in "first_name", :with => "Alvaro"
       fill_in "last_name", :with => "Delgado"
       fill_in "age", :with => 28
+      select "Male", :from => "gender"
       fill_in "street", :with => "First Ave. No. 1200"
       fill_in "city", :with => "Morelia"
       fill_in "state", :with => "Texas"
