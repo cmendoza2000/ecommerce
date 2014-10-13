@@ -2,5 +2,5 @@
 %h3 Your information
 %p= @user.first_name 
 .br-lg
-= link_to "Delete Profile"
+= link_to "Delete Profile", user_path(@user), method: :delete
 = link_to "Edit Profile", edit_user_path(@user)

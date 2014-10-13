@@ -1,6 +1,6 @@
 %h2 Edit Profile
 .br-md  
-  = form_tag edit_user_path(@user), :method => :put do
+  = form_tag edit_user_path(@user), :method => :post do
     .form-group
       = label_tag :username
       = text_field_tag :username, @user.username, :name => :username

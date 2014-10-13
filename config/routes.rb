@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :users
   resources :articles
 
-  get 'users/:id/edit', to: "users#edit", method: "put"
+  post 'users/:id/edit', to: "users#update"
 end
