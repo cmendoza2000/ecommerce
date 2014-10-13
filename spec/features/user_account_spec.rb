@@ -2,7 +2,7 @@ describe UsersController, :type => :feature do
   describe "the user account access flow" do
 
     before :each do
-      @user = User.create(id: 1, username: "capybara", email: "capybara@email.com", password: "password")
+      @user = FactoryGirl.create(:user)
     end
 
     def login_user 
