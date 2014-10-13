@@ -14,7 +14,6 @@ describe UsersController, :type => :feature do
 
     scenario "signs me in" do 
       login_user 
-      expect(page).to have_content "You have logged in successfuly" 
       expect(page).to have_content @user.username
       expect(page).to have_content "Logout"
       expect(page).to have_no_content "Login"
@@ -38,7 +37,6 @@ describe UsersController, :type => :feature do
       login_user
       click_link "Logout"
       expect(current_path).to eq root_path
-      expect(page).to have_content "You have logged out successfuly"
       expect(page).to have_content "Login"
       expect(page).to have_content "Register"
       expect(page).to have_no_content "Logout"
@@ -48,7 +46,6 @@ describe UsersController, :type => :feature do
       visit new_user_password_path
       fill_in "Email", :with => "capybara@email.com"
       click_button "Send me reset password instructions"
-      expect(page).to have_content "You will receive an email with instructions on how to reset your password in a few minutes"
     end
 
     scenario "shows my profile" do
@@ -73,14 +70,12 @@ describe UsersController, :type => :feature do
       click_button "Save Changes"
       expect(page.status_code).to eq 200
       expect(current_path).to eq edit_user_path(@user)
-      expect(page).to have_content "Your profile has been successfuly updated"
     end
 
     scenario "deletes my profile" do 
       visit user_path(@user)
       click_link "Delete Profile"
       expect(page.status_code).to eq 200
-      expect(page).to have_content "Your profile has been successfuly deleted"
       expect(current_path).to eq root_path
     end
 
