@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :articles
+
+  post 'users/:id/edit', to: "users#update"
 end
