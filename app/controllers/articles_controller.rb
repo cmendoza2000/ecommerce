@@ -16,6 +16,15 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    render :new
+    @article = Article.new(
+      name: params[:name],
+      category: params[:category],
+      price: params[:price],
+      description: params[:description] 
+    )
+    @article.save
+    
+    flash[:notice] = "Your item has been published"
+    redirect_to root_path
   end
 end

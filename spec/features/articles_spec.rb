@@ -27,7 +27,8 @@ describe ArticlesController, :type => :feature do
       fill_in "Description", :with => @article.description
       click_button "Publish Item"
       expect(page.status_code).to eq 200
-      expect(current_path).to eq new_article_path
+      expect(current_path).to eq root_path
+      expect(page).to have_content @article.name
     end
 
     it "deletes an article" do
