@@ -32,6 +32,9 @@ describe ArticlesController, :type => :feature do
     end
 
     it "shows my article's details" do
+      login_user
+      click_link @article.name 
+      expect(current_path).to eq article_path(@article)
     end
 
     it "edits my article" do
