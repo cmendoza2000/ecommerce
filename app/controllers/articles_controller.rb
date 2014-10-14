@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    #@article = Article.find(params[:id]) 
+    @article = Article.find(params[:id]) 
   end
 
   def new
@@ -37,5 +37,20 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    @article.update_attributes(
+      name: params[:name],
+      category: params[:category],
+      price: params[:price],
+      description: params[:description]
+    )
+    @article.save
+
+    flash[:notice] = "Your article has been successfuly updated"
+    redirect_to user_path(id: @article.user_id)
   end
 end

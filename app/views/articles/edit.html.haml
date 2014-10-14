@@ -1,1 +1,21 @@
-Edit Article
+%h2= "Edit information for #{@article.name}"
+
+= form_tag edit_article_path(@article), :method => :post do
+  .form-group
+    = label_tag :name
+    = text_field_tag :name, @article.name
+  .form-group
+    = label_tag :category
+    = text_field_tag :category, @article.category
+  .form-group
+    = label_tag :price
+    = text_field_tag :price, @article.price
+  .form-group
+    = label_tag :description
+    = text_area_tag :description, @article.description
+  .form-group
+    = submit_tag "Save Changes"
+
+  
+
+

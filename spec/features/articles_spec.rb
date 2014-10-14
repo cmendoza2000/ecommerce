@@ -31,7 +31,7 @@ describe ArticlesController, :type => :feature do
       expect(page).to have_content @article.name
     end
 
-    it "shows my article's details" do
+    it "shows my article's details from user profile" do
       login_user
       click_link @article.name 
       expect(current_path).to eq article_path(@article)
@@ -41,6 +41,15 @@ describe ArticlesController, :type => :feature do
       login_user
       click_link "Edit"
       expect(current_path).to eq edit_article_path(@article)
+      fill_in "Name", :with => "Fender Guitar"
+      fill_in "Category", :with => "Music"
+      fill_in "Price", :with => 1000.25
+      fill_in "Description", :with => "This is a great guitar to rock with"
+      click_button "Save Changes"
+      expect(page.status_code).to eq 200
+      expect(current_path).to eq user_path(@user)
+      expect(page).to have_content "Fender Guitar"
+      expect(page).to have_content "This is a great guitar to rock with"
     end
 
     it "deletes an article" do

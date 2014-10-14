@@ -13,4 +13,5 @@ Rails.application.routes.draw do
 
   # article routes
   post 'articles/new', to: 'articles#create'
+  post 'articles/:id/edit', to: 'articles#update'
 end
