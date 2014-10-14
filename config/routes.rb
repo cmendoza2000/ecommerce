@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   resources :users
   resources :articles
+  
+  # user routes
+  post 'users/:id/edit', to: 'users#update'
 
-  post 'users/:id/edit', to: "users#update"
+  # article routes
+  post 'articles/new', to: 'articles#create'
 end

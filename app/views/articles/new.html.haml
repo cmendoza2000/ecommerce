@@ -1,1 +1,17 @@
-New article
+%h1 New article
+
+= form_tag new_article_path(@article), :method => :post do
+  .form-group
+    = label_tag :name
+    = text_field_tag :name
+  .form-group
+    = label_tag :category
+    = text_field_tag :category
+  .form-group
+    = label_tag :price
+    = text_field_tag :price
+  .form-group
+    = label_tag :description
+    = text_area_tag :description
+  .form-group
+    = submit_tag "Publish Item"
