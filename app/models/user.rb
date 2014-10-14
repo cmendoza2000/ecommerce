@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :zip_code, allow_blank: true, length: { minimum: 5, maximum: 6 }
 
+  has_many :articles
 end
