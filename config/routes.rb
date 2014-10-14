@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   # article routes
   post 'articles/new', to: 'articles#create'
   post 'articles/:id/edit', to: 'articles#update'
+  get 'articles/category/:category', to: 'articles#filter_by_category', as: 'articles_by_category'
 end

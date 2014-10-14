@@ -53,4 +53,10 @@ class ArticlesController < ApplicationController
     flash[:notice] = "Your article has been successfuly updated"
     redirect_to user_path(id: @article.user_id)
   end
+
+  def filter_by_category
+    @category = params[:category]
+    @category[0] = @category[0].capitalize
+    @articles = Article.where(category: params[:category])
+  end
 end

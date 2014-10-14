@@ -15,6 +15,7 @@ describe ArticlesController, :type => :feature do
     it "redirect the user to login if not authenticaded" do 
       visit new_article_path
       expect(current_path).to eq new_user_session_path
+      expect(page).to have_selector ".category", count: 1
     end
 
     it "creates a new article" do
