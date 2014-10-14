@@ -35,4 +35,7 @@ class ArticlesController < ApplicationController
     flash[:notice] = "Your article has been successfuly deleted"
     redirect_to :back
   end
+
+  def edit
+  end
 end

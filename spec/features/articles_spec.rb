@@ -38,6 +38,9 @@ describe ArticlesController, :type => :feature do
     end
 
     it "edits my article" do
+      login_user
+      click_link "Edit"
+      expect(current_path).to eq edit_article_path(@article)
     end
 
     it "deletes an article" do

@@ -38,6 +38,7 @@
                 %h4.media-heading= article.name
               = article.description
               .br-md
+                = link_to "Edit", edit_article_path(article)
                 = link_to "Delete Article", article_path(article), :method => :delete
 .row
   .br-lg.center
