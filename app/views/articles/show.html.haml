@@ -1,6 +1,6 @@
 .row
   .center
-    %h2 Article's name
+    %h2= @article.name
   .row.br-md
     .col-lg-4
       %a{href: "#", class: "thumbnail"}
@@ -8,14 +8,14 @@
     .col-lg-8
       .center
         %h3 Description
-      %p.description Note that this schema.rb definition is the authoritative source for your database schema. If you need to create the application database on another system, you should be using db:schema:load, not running all the migrations from scratch. The latter is a flawed and unsustainable approach (the more migr
+      %p.description= @article.description 
       .row
         .col-lg-6.br-md.center
           %h4 Shipping details
         .col-lg-6.br-md.center
           %h4 Price
           .col-lg-6
-            %span.price $ 99.99
+            %span.price= "$ #{@article.price}"
           .col-lg-6
             %a{class: "btn btn-success btn-large"} BUY NOW
 .row

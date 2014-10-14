@@ -1,0 +1,22 @@
+.page-header.center
+  %h2 New article
+.col-lg-6.col-lg-offset-3.well
+  = form_tag new_article_path(@article), :class => "form-horizontal", :method => :post do
+    .form-group
+      = label_tag :name, nil, class: "col-lg-3 form-label"
+      .col-lg-9
+        = text_field_tag :name, nil, class: "form-control"
+    .form-group
+      = label_tag :category, nil, class: "col-lg-3 form-label"
+      .col-lg-9
+        = text_field_tag :category, nil, class: "form-control"
+    .form-group
+      = label_tag :price, nil, class: "col-lg-3 form-label"
+      .col-lg-9
+        = text_field_tag :price, nil, class: "form-control"
+    .form-group
+      = label_tag :description, nil, class: "col-lg-3 form-label"
+      .col-lg-9
+        = text_area_tag :description, nil, class: "form-control"
+    .form-group.br-sm.right
+      = submit_tag "Publish Item", class: "btn btn-success"

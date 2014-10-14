@@ -31,11 +31,17 @@
       %h3.center Latest Transactions
       .row.br-md
         .media
-          %img{src: "http://placehold.it/80x80", class: "left"}
-          .media-body
-            %h4.media-heading Article's name
-            This is the description for this article
+          - @user_articles.each do |article|
+            %img{src: "http://placehold.it/80x80", class: "left"}
+            .media-body
+              %a{href: article_path(article)}
+                %h4.media-heading= article.name
+              = article.description
+              .br-lg
+                = link_to "Details", article_path(article), :class => "btn btn-success btn-xs"
+                = link_to "Edit", edit_article_path(article), :class => "btn btn-warning btn-xs"
+                = link_to "Delete Article", article_path(article), :class => "btn btn-danger btn-xs", :method => :delete
 .row
   .br-lg.center
-    = link_to "Edit Profile", edit_user_path(@user), class: "btn btn-warning btn-sm"
-    = link_to "Delete Profile", user_path(@user), method: :delete, class: "btn btn-danger btn-sm"
+    = link_to "Edit Profile", edit_user_path(@user), class: "btn btn-warning btn-md"
+    = link_to "Delete Profile", user_path(@user), method: :delete, class: "btn btn-danger btn-md"

@@ -36,7 +36,8 @@
     .col-lg-3.col-md-4.col-sm-6
       .panel.panel-primary
         .panel-heading
-          %h3.panel-title= article.name
+          %a{href: article_path(article)}
+            %h3.panel-title= article.name
       .panel-body
         .row  
           .col-lg-4

@@ -1,0 +1,26 @@
+.page-header.center
+  %h2= "Edit information for #{@article.name}"
+.col-lg-6.col-lg-offset-3.well.br-sm
+  = form_tag edit_article_path(@article), :class => "form-horizontal", :method => :post do
+    .form-group
+      = label_tag :name, nil, class: "col-lg-3 form-label"
+      .col-lg-9
+        = text_field_tag :name, @article.name, class: "form-control"
+    .form-group
+      = label_tag :category, nil, class: "col-lg-3 form-label"
+      .col-lg-9
+        = text_field_tag :category, @article.category, class: "form-control"
+    .form-group
+      = label_tag :price, nil, class: "col-lg-3 form-label"
+      .col-lg-9
+        = text_field_tag :price, @article.price, class: "form-control"
+    .form-group
+      = label_tag :description, nil, class: "col-lg-3 form-label"
+      .col-lg-9
+        = text_area_tag :description, @article.description, class: "form-control"
+    .form-group.br-sm.right
+      = submit_tag "Save Changes", class: "btn btn-success"
+
+    
+
+
