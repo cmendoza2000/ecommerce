@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(
+      user_id: current_user.id,
       name: params[:name],
       category: params[:category],
       price: params[:price],
@@ -26,5 +27,12 @@ class ArticlesController < ApplicationController
     
     flash[:notice] = "Your item has been published"
     redirect_to root_path
+  end
+  
+  def destroy
+    @article = Article.find(params[:id]).destroy
+
+    flash[:notice] = "Your article has been successfuly deleted"
+    redirect_to :back
   end
 end

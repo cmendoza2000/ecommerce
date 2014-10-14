@@ -31,10 +31,13 @@
       %h3.center Latest Transactions
       .row.br-md
         .media
-          %img{src: "http://placehold.it/80x80", class: "left"}
-          .media-body
-            %h4.media-heading Article's name
-            This is the description for this article
+          - @user_articles.each do |article|
+            %img{src: "http://placehold.it/80x80", class: "left"}
+            .media-body
+              %h4.media-heading= article.name
+              = article.description
+              .br-md
+                = link_to "Delete Article", article_path(article), :method => :delete
 .row
   .br-lg.center
     = link_to "Edit Profile", edit_user_path(@user), class: "btn btn-warning btn-sm"

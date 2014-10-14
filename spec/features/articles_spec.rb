@@ -1,6 +1,6 @@
 describe ArticlesController, :type => :feature do
   before :each do
-    @user = FactoryGirl.create(:user)
+    @user = FactoryGirl.create(:user) 
     @article = FactoryGirl.create(:article)
   end  
 
@@ -31,7 +31,17 @@ describe ArticlesController, :type => :feature do
       expect(page).to have_content @article.name
     end
 
+    it "shows my article's details" do
+    end
+
+    it "edits my article" do
+    end
+
     it "deletes an article" do
+      login_user
+      click_link "Delete Article"
+      expect(page.status_code).to eq 200
+      expect(current_path).to eq user_path(@user)
     end
   end
 

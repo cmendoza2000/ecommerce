@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   # user routes
   post 'users/:id/edit', to: 'users#update'
+  #delete 'users/:id/delete_article/', to: "users#destroy_article", as: "delete_article"
 
   # article routes
   post 'articles/new', to: 'articles#create'

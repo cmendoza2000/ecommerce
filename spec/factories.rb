@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :article do
     id 1
+    user_id 1
     name "Coca Cola"
     category "food"
     price 99.90

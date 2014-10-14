@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @user_articles = Article.where(user_id: params[:id])
   end
 
   def edit
@@ -30,5 +31,12 @@ class UsersController < ApplicationController
 
     flash[:notice] = "Your profile has been successfuly deleted"
     redirect_to root_path
+  end
+
+  def destroy_article
+    @article = Article.find(params[:id]).destroy
+
+    flash[:notice] = "Your article has been successfuly deleted"
+    redirect_to :back
   end
 end
