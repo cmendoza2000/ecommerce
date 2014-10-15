@@ -55,8 +55,11 @@ class ArticlesController < ApplicationController
   end
 
   def filter_by_category
-    @category = params[:category]
-    @category[0] = @category[0].upcase
+    @category = params[:category].capitalize
     @articles = Article.where(category: params[:category])
+  end
+
+  def search
+    raise params.to_json
   end
 end

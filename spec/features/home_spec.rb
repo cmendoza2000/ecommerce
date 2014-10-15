@@ -9,11 +9,16 @@ describe HomeController, :type => :feature do
       visit root_path
       find_by_id(@category).click
       expect(current_path).to eq articles_by_category_path(@category)
-      @category[0] = @category[0].upcase
-      expect(page).to have_content "Category: #{@category}"
+      expect(page).to have_content "Category: #{@category.capitalize}"
     end
   end
 
   feature "users can search articles" do
+    it "searches and find existent articles with lowcase" do
+      visit root_path
+      fill_in "Search", :with => "coca cola\n"
+      expect(page.status_code).to eq 200
+      #expect(current_path).to eq search_results_path("coca cola") 
+    end
   end
 end
