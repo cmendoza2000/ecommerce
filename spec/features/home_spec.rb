@@ -3,6 +3,14 @@ describe HomeController, :type => :feature do
     @article = FactoryGirl.create(:article)
     @category = @article.category
   end
+
+  feature "users can see article's details" do
+    it "shows article's details from latest items section" do
+      visit root_path
+      click_link @article.name
+      expect(current_path).to eq article_path(@article)
+    end
+  end
   
   feature "users can filter articles by category" do
     it "filters articles by clicking a category" do
