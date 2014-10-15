@@ -7,8 +7,10 @@ describe HomeController, :type => :feature do
   feature "users can filter articles by category" do
     it "filters articles by clicking a category" do
       visit root_path
-      find("##{@category}").click
+      find_by_id(@category).click
       expect(current_path).to eq articles_by_category_path(@category)
+      @category[0] = @category[0].upcase
+      expect(page).to have_content "Category: #{@category}"
     end
   end
 

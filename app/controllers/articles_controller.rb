@@ -56,7 +56,7 @@ class ArticlesController < ApplicationController
 
   def filter_by_category
     @category = params[:category]
-    @category[0] = @category[0].capitalize
+    @category[0] = @category[0].upcase
     @articles = Article.where(category: params[:category])
   end
 end
