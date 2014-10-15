@@ -1,0 +1,5 @@
+%h2= "Category: #{@category}"
+- @articles.each do |article|
+  .category
+    = article.name
+    = article.description

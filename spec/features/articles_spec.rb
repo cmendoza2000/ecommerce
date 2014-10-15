@@ -60,14 +60,6 @@ describe ArticlesController, :type => :feature do
     end
   end
 
-  feature "searching and filtering articles" do
-    it "searches and finds an existent article" do
-    end
-
-    it "filters an article by its categories" do
-    end
-  end
-
   feature "buying an article" do
     it "asks a question to the owner" do
     end
