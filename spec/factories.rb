@@ -6,6 +6,34 @@ FactoryGirl.define do
     category "food"
     price 99.90
     description "This is a brand new fresh Coca-Cola beverage"
+
+    factory :article2, class: Article do
+      id 2
+      name "Pepsi"
+      category "food"
+      price 100.50
+      description "This soda is not that sweet"
+      
+      factory :article_without_name do 
+        name nil
+      end
+
+      factory :article_without_price do
+        price nil
+      end
+      
+      factory :article_without_category do
+        category nil
+      end
+
+      factory :small_article_name do
+        name "123"
+      end
+
+      factory :big_article_name do
+        name "big article name"
+      end
+    end
   end
 
   factory :user do
