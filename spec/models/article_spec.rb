@@ -46,5 +46,5 @@ describe Article, :type => :model do
     expect(@base_article.slug).to eq @base_article.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   end
 
-  it "should belong to a user"
+  it { should belong_to :user }
 end
