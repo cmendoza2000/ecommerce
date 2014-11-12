@@ -1,33 +1,38 @@
-== README
-
-Rails e-commerce app
+RoR Ecommerce Application
+===
 
 [![Build Status](https://travis-ci.org/AAlvAAro/ecommerce.svg?branch=master)](https://travis-ci.org/AAlvAAro/ecommerce)
-[![Dependency Status](https://gemnasium.com/AAlvAAro/ecommerce.png)](https://gemnasium.com/AAlvAAro/ecommerce)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Install ruby's version ~> 2.1
 
-Things you may want to cover:
+* Clone the repository
+```bash
+git clone https://github.com/AAlvAAro/ecommerce
+```
 
-* Ruby version
+* Install the dependencies without production gems
+```bash
+bundle install --without production
+```
 
-* System dependencies
+* Run database's migration before running the project
+```bash
+rake db:migrate
+```
 
-* Configuration
+* Run the server
+```bash
+bundle exec rails server
+```
 
-* Database creation
+* To run all the tests:
+```bash
+rspec
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* To run specific tests use the name of the folder where your tests are
+```bash
+rspec spec/folder_name
+```
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
