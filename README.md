@@ -6,33 +6,33 @@ RoR Ecommerce Application
 * Install ruby's version ~> 2.1
 
 * Clone the repository
-'''bash
+```bash
 git clone https://github.com/AAlvAAro/ecommerce
-'''
+```
 
 * Install the dependencies without production gems
-'''bash
+```bash
 bundle install --without production
-'''
+```
 
 * Run database's migration before running the project
-'''bash
+```bash
 rake db:migrate
-'''
+```
 
 * Run the server
-'''bash
+```bash
 bundle exec rails server
-'''
+```
 
 * To run all the tests:
-'''bash
+```bash
 rspec
-'''
+```
 
 * To run specific tests use the name of the folder where your tests are
-'''bash
+```bash
 rspec spec/folder_name
-'''
+```
 
 
