@@ -23,22 +23,17 @@
     .page-header
       %h2 Questions
 
-.row  
-  .form-group
-    %input.form-control#focusedInput{type: "text", value: "Ask a question to the seller"}
-    .br-sm.right
-      %a{class: "btn btn-info btn-large"} Ask Question
+.row 
+  = form_tag new_question_path(@article), :id => @article.id,:method => :post do
+    .form-group
+      = text_field_tag :content, nil, class: "form-control", id: "focusedInput", placeholder: "Ask a question to the seller"
+      .br-sm.right
+        %button{class: "btn btn-info btn-large"} Ask Question
 
 .row.br-md
-  .well.well-lg
-    First question
-    .row
-      .well.well-sm.answer
-        This is the answer
-  .well.well-lg
-    Second question
-    .row
-      .well.well-sm.answer
-        This is the answer
-  .well.well-lg
-    Third question
+  - @questions.each do |question|
+    .well.well-lg
+      = question.created_at
+      .row
+        .well.well-sm.answer
+          = question.content

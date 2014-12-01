@@ -62,16 +62,11 @@ describe ArticlesController, :type => :feature do
 
   feature "asks and answers questions" do
     it "asks questions" do
-=begin
       login_user
       click_link @article.name
       fill_in "focusedInput", :with => @question.content
-      click_link "Ask Question"
+      click_button "Ask Question"
       expect(page).to have_content @question.content
-=end
-    end
-
-    it "edits and deletes questions if the haven't been answered" do
     end
 
     it "answers questions" do

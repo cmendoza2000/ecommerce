@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   post 'articles/:id/edit', to: 'articles#update'
   get 'articles/category/:category', to: 'articles#filter_by_category', as: 'articles_by_category'
   get 'articles/search_results/:query', to: 'articles#search', as: 'search_results'
+  post 'articles/:id/create_question', to: 'articles#create_question', as: 'new_question'
 end
