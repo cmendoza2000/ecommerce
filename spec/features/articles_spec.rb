@@ -70,6 +70,20 @@ describe ArticlesController, :type => :feature do
     end
 
     it "answers questions" do
+      login_user
+      visit user_path(@user)
+      click_link "Answer questions"
+      expect(current_path).to eq user_questions_path(@user)
+      expect(page).to have_content @question.content
+      click_link "Answer question"
+      answer_input = "#question_#{@question.id}"
+      expect(page).to have_css answer_input
+      fill_in answer_input, :with => @answer.content
+      click_button "Answer Question"
+      expect(page).to have_content @answer.content
+      visit article_path(@article)
+      expect(page).to have_content @question.content
+      expect(page).to have_content @answer.content
     end
   end
 
