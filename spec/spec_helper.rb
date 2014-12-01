@@ -1,4 +1,5 @@
 require 'factory_girl_rails'
+require 'capybara'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -20,6 +21,14 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
+
+  Capybara.register_driver :selenium do |app|
+    profile = Selenium::WebDriver::Firefox::Profile.new
+    Capybara::Selenium::Driver.new(app, :profile => profile)
+  end
+  Capybara.default_wait_time = 5
+  Capybara.current_driver = :selenium
+  Capybara.app_host = "http://localhost:3000"
    
   config.include FactoryGirl::Syntax::Methods  
 end
