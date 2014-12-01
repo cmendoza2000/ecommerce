@@ -3,6 +3,8 @@ class Article < ActiveRecord::Base
   validates :category, presence: true
   validates :price, presence: true
 
+  has_many :questions, dependent: :destroy
+
   belongs_to :user
 
   before_save :create_slug

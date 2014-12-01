@@ -2,8 +2,8 @@ describe ArticlesController, :type => :feature do
   before :each do
     @user = FactoryGirl.create(:user) 
     @article = FactoryGirl.create(:article)
+    @question = FactoryGirl.create(:question)
   end  
-
   def login_user
     visit new_user_session_path
     fill_in "Email", :with => @user.email
@@ -57,6 +57,24 @@ describe ArticlesController, :type => :feature do
       click_link "Delete Article"
       expect(page.status_code).to eq 200
       expect(current_path).to eq user_path(@user)
+    end
+  end
+
+  feature "asks and answers questions" do
+    it "asks questions" do
+=begin
+      login_user
+      click_link @article.name
+      fill_in "focusedInput", :with => @question.content
+      click_link "Ask Question"
+      expect(page).to have_content @question.content
+=end
+    end
+
+    it "edits and deletes questions if the haven't been answered" do
+    end
+
+    it "answers questions" do
     end
   end
 

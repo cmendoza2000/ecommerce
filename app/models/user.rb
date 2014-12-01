@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   validates :zip_code, allow_blank: true, length: { minimum: 5, maximum: 6 }
 
   has_many :articles, dependent: :destroy
+  has_many :questions, dependent: :destroy
 end
