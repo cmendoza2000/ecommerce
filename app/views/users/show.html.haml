@@ -28,19 +28,23 @@
           %p= @user.state
           %p= @user.zip_code
     .col-lg-6
-      %h3.center Latest Transactions
-      .row.br-md
-        .media
-          - @user_articles.each do |article|
-            %img{src: "http://placehold.it/80x80", class: "left"}
-            .media-body
-              %a{href: article_path(article)}
-                %h4.media-heading= article.name
-              = article.description
-              .br-lg
-                = link_to "Details", article_path(article), :class => "btn btn-success btn-xs"
-                = link_to "Edit", edit_article_path(article), :class => "btn btn-warning btn-xs"
-                = link_to "Delete Article", article_path(article), :class => "btn btn-danger btn-xs", :method => :delete
+      .row
+        %h3.center Latest Transactions
+        .row.br-md
+          .media
+            - @user_articles.each do |article|
+              %img{src: "http://placehold.it/80x80", class: "left"}
+              .media-body
+                %a{href: article_path(article)}
+                  %h4.media-heading= article.name
+                = article.description
+                .br-lg
+                  = link_to "Details", article_path(article), :class => "btn btn-success btn-xs"
+                  = link_to "Edit", edit_article_path(article), :class => "btn btn-warning btn-xs"
+                  = link_to "Delete Article", article_path(article), :class => "btn btn-danger btn-xs", :method => :delete
+    .row.center
+      = link_to "Answer Questions", user_questions_path(@user), class: "btn btn-success btn-md"
+
 .row
   .br-lg.center
     = link_to "Edit Profile", edit_user_path(@user), class: "btn btn-warning btn-md"

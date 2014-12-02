@@ -1,0 +1,9 @@
+.container
+  %h1 Questions asked to you
+  .row
+    - @questions.each do |question|
+      .well.well-lg
+        %p= question.created_at
+        %p= question.content
+        .row.right
+          %a{} Answer Question

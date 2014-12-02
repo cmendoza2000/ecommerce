@@ -72,10 +72,10 @@ describe ArticlesController, :type => :feature do
     it "answers questions" do
       login_user
       visit user_path(@user)
-      click_link "Answer questions"
+      click_link "Answer Questions"
       expect(current_path).to eq user_questions_path(@user)
       expect(page).to have_content @question.content
-      click_link "Answer question"
+      click_link "Answer Question"
       answer_input = "#question_#{@question.id}"
       expect(page).to have_css answer_input
       fill_in answer_input, :with => @answer.content
@@ -88,16 +88,13 @@ describe ArticlesController, :type => :feature do
   end
 
   feature "buying an article" do
-    it "asks a question to the owner" do
-    end
-
-    it "answers questions to other users" do 
-    end
-
     it "adds an article to cart" do
     end
 
     it "checkout and confirm buy" do
+    end
+
+    it "send an email with transaction data" do
     end
   end
 end

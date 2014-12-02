@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   # user routes
   post 'users/:id/edit', to: 'users#update'
+  get 'users/:id/questions', to: 'users#show_questions', as: 'user_questions'
 
   # article routes
   post 'articles/new', to: 'articles#create'

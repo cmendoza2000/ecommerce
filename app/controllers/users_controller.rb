@@ -37,4 +37,8 @@ class UsersController < ApplicationController
     flash[:notice] = "Your article has been successfuly deleted"
     redirect_to :back
   end
+
+  def show_questions
+    @questions = Question.where(user_id: params[:id])
+  end
 end
