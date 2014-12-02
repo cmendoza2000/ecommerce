@@ -3,6 +3,7 @@ describe ArticlesController, :type => :feature do
     @user = FactoryGirl.create(:user) 
     @article = FactoryGirl.create(:article)
     @question = FactoryGirl.create(:question)
+    @answer = FactoryGirl.create(:answer)
   end  
   def login_user
     visit new_user_session_path
@@ -75,11 +76,11 @@ describe ArticlesController, :type => :feature do
       click_link "Answer Questions"
       expect(current_path).to eq user_questions_path(@user)
       expect(page).to have_content @question.content
-      click_link "Answer Question"
-      answer_input = "#question_#{@question.id}"
-      expect(page).to have_css answer_input
-      fill_in answer_input, :with => @answer.content
       click_button "Answer Question"
+      answer_input = "question_#{@question.id}_answer"
+      expect(page).to have_css "##{answer_input}"
+      fill_in answer_input, :with => @answer.content
+      click_button "Answer"
       expect(page).to have_content @answer.content
       visit article_path(@article)
       expect(page).to have_content @question.content
