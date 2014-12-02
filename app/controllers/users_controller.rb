@@ -41,4 +41,13 @@ class UsersController < ApplicationController
   def show_questions
     @questions = Question.where(user_id: params[:id])
   end
+
+  def answer_question
+    @answer = Answer.create(
+      user_id: current_user.id,
+      question_id: params[:id] 
+    ).save
+    flash[:notice] = "The question has been answered"
+    redirect_to :back
+  end
 end
