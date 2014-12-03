@@ -48,6 +48,10 @@ FactoryGirl.define do
     username "rspec"
     email "rspec@email.com"
     password "password"
+    street "First Ave"
+    city "Los Angeles"
+    state "CA"
+    zip_code "90003"
 
     factory :user_without_username do
       username nil
