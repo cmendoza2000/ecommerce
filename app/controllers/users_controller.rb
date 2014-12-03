@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   def show_questions
-    @questions = Question.where(user_id: params[:id])
+    @questions = Question.where(user_id: params[:id]).order('created_at DESC')
   end
 
   def answer_question
