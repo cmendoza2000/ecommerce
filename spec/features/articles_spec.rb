@@ -89,12 +89,35 @@ describe ArticlesController, :type => :feature do
 
   feature "buying an article" do
     it "adds an article to cart" do
-    end
-
-    it "checkout and confirm buy" do
-    end
-
-    it "send an email with transaction data" do
+      login_user
+      visit article_path(@article)
+      click_button "Add to cart"
+      expect(page).to have_content "Cart: 1 item"
+      expect(page).to have_content "Checkout"
+      click_link "Logout"
+      expect(page).not_to have_content "Cart:  1 item"
+      login_user
+      visit article_path(@article)
+      click_button "Add to cart"
+      click_button "Add to cart"
+      expect(page).to have_content "Cart: 2 items"
+      click_button "Checkout"
+      expect(current_path).to eq shopping_cart_path(@user)
+      expect(page).to have_content @article.name
+      expect(page).to have_content "2 pieces"
+      fill_in "Address", :with => @user.street
+      fill_in "City", :with => @user.city
+      fill_in "State", :with => @user.state
+      fill_in "Zip Code", :with => @user.zip_code
+      click_link "Home"
+      click_link "Cart: 2 items"
+      expect(page).to have_content @user.street
+      expect(page).to have_content @user.city
+      expect(page).to have_content @user.state
+      expect(page).to have_content @user.zip_code
+      click_button "Send payment information"
+      expect(current_path).to eq user_path(@user)
+      expect(page).not_to have_content "Cart: 2 items"
     end
   end
 end
