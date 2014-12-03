@@ -45,7 +45,8 @@ class UsersController < ApplicationController
   def answer_question
     @answer = Answer.create(
       user_id: current_user.id,
-      question_id: params[:id] 
+      question_id: params[:id],
+      content: params[:content]
     ).save
     flash[:notice] = "The question has been answered"
     redirect_to :back
