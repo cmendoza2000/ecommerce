@@ -76,7 +76,6 @@ describe ArticlesController, :type => :feature do
       click_link "Answer Questions"
       expect(current_path).to eq user_questions_path(@user)
       expect(page).to have_content @question.content
-      click_button "Answer Question"
       answer_input = "question_#{@question.id}_answer"
       expect(page).to have_css "##{answer_input}"
       fill_in answer_input, :with => @answer.content
