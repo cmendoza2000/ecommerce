@@ -2,8 +2,9 @@ describe ArticlesController, :type => :feature do
   before :each do
     @user = FactoryGirl.create(:user) 
     @article = FactoryGirl.create(:article)
+    @question = FactoryGirl.create(:question)
+    @answer = FactoryGirl.create(:answer)
   end  
-
   def login_user
     visit new_user_session_path
     fill_in "Email", :with => @user.email
@@ -60,17 +61,40 @@ describe ArticlesController, :type => :feature do
     end
   end
 
+  feature "asks and answers questions" do
+    it "asks questions" do
+      login_user
+      click_link @article.name
+      fill_in "focusedInput", :with => @question.content
+      click_button "Ask Question"
+      expect(page).to have_content @question.content
+    end
+
+    it "answers questions" do
+      login_user
+      visit user_path(@user)
+      click_link "Answer Questions"
+      expect(current_path).to eq user_questions_path(@user)
+      expect(page).to have_content @question.content
+      answer_input = "question_#{@question.id}_answer"
+      expect(page).to have_css "##{answer_input}"
+      fill_in answer_input, :with => @answer.content
+      click_button "Answer"
+      expect(page).to have_content @answer.content
+      visit article_path(@article)
+      expect(page).to have_content @question.content
+      expect(page).to have_content @answer.content
+    end
+  end
+
   feature "buying an article" do
-    it "asks a question to the owner" do
-    end
-
-    it "answers questions to other users" do 
-    end
-
     it "adds an article to cart" do
     end
 
     it "checkout and confirm buy" do
+    end
+
+    it "send an email with transaction data" do
     end
   end
 end

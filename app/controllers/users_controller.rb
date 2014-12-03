@@ -37,4 +37,18 @@ class UsersController < ApplicationController
     flash[:notice] = "Your article has been successfuly deleted"
     redirect_to :back
   end
+
+  def show_questions
+    @questions = Question.where(user_id: params[:id]).order('created_at DESC')
+  end
+
+  def answer_question
+    @answer = Answer.create(
+      user_id: current_user.id,
+      question_id: params[:id],
+      content: params[:content]
+    ).save
+    flash[:notice] = "The question has been answered"
+    redirect_to :back
+  end
 end

@@ -1,0 +1,28 @@
+.container
+  %h1 Questions asked to you
+  .row
+    - @questions.each do |question|
+      .well.well-lg
+        %p= question.created_at
+        %p= question.content
+        .row  
+          - if question.answer
+            .well.well-sm.answer
+              = question.answer.content
+        - unless question.answer
+          .row.right
+            %button{:class => "btn btn-primary btn-info btn-sm", "data-toggle" => "modal", "data-target" => "#question_#{question.id}"} Answer Question
+
+        .container 
+          .modal.fade{:id => "question_#{question.id}", :tabindex => "-1", :role => "dialog", "aria-hidden" => "true"}
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  %h1 Answer Question
+                .modal-body
+                  .row
+                    = form_tag answer_question_path(question), :id => question.id, :method => :post do
+                      .form-group
+                        = text_field_tag :content, nil, class: "form-control", id: "question_#{question.id}_answer"
+                        .br-sm.right
+                          %button{class: "btn btn-success btn-md"} Answer 

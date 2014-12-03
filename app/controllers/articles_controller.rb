@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id]) 
+    @questions = Question.where(article_id: @article.id).order("created_at DESC")
   end
 
   def new
@@ -61,5 +62,19 @@ class ArticlesController < ApplicationController
 
   def search
     raise params.to_json
+  end
+
+  def create_question
+    @question = Question.create(
+      article_id: params[:id],
+      user_id: current_user.id,
+      content: params[:content]
+    )
+    if @question.save
+      redirect_to article_path(params[:id])
+      flash[:notice] = "Your question has been submitted"
+    else 
+      flash[:error] = "There has been an error submitting your question"
+    end
   end
 end
