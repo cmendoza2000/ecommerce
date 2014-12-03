@@ -36,3 +36,5 @@ rspec spec/folder_name
 ```
 
 
+
+* Contribute and improve the application by solving an issue   
