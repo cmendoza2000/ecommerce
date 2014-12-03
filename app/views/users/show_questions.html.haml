@@ -1,16 +1,13 @@
 .container
   %h1 Questions asked to you
-  .row
-    - @questions.each do |question|
+  - @questions.each do |question|
+    - unless question.answer
       .well.well-lg
-        %p= question.created_at
-        %p= question.content
-        .row  
-          - if question.answer
-            .well.well-sm.answer
-              = question.answer.content
-        - unless question.answer
-          .row.right
+        .col-lg-8
+          %p= question.created_at
+          %p= question.content
+        .col-lg-4
+          .br-sm.right
             %button{:class => "btn btn-primary btn-info btn-sm", "data-toggle" => "modal", "data-target" => "#question_#{question.id}"} Answer Question
 
         .container 
