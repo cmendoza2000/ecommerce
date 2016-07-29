@@ -21,6 +21,7 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :production do
